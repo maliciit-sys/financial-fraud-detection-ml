@@ -1,0 +1,21 @@
+# Data files
+*.csv
+*.pkl
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+ml-env/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
