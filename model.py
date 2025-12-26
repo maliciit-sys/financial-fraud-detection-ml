@@ -41,6 +41,7 @@ class FraudDetectionNet(nn.Module):
         self.dropout3 = nn.Dropout(0.2)
         self.sigmoid = nn.Sigmoid()
 
+    # In FraudDetectionNet forward method, REMOVE sigmoid from output:
     def forward(self, x):
         x = self.relu(self.layer1(x))
         x = self.dropout1(x)
@@ -51,8 +52,8 @@ class FraudDetectionNet(nn.Module):
         x = self.relu(self.layer3(x))
         x = self.dropout3(x)
 
-        x = self.sigmoid(self.output(x))
-        return x
+        x = self.output(x)  # Remove .sigmoid() here
+        return x.squeeze()  # Add squeeze here
 
 # ===== TRAINING FUNCTION =====
 

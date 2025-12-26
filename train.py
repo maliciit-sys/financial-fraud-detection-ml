@@ -31,7 +31,9 @@ val_loader = DataLoader(val_dataset, batch_size=BATCH_SIZE, shuffle=False, num_w
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 model = FraudDetectionNet(input_size=X_train.shape[1]).to(device)
 
-criterion = nn.BCELoss()
+# NEW - Weighted loss for imbalance
+pos_weight = torch.FloatTensor([26.8]).to(device)
+criterion = nn.BCEWithLogitsLoss(pos_weight=pos_weight)
 optimizer = optim.Adam(model.parameters(), lr=LEARNING_RATE)
 
 print(f"\nDevice: {device}")
