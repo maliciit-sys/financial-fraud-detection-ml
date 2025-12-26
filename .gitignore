@@ -1,21 +1,47 @@
 # Data files
 *.csv
-*.pkl
+data/
+raw_data/
 
-# Python
+# Model checkpoints (keep only best versions)
+*.pth
+!models/best_model.pth
+!models/baseline_model.pth
+
+# Python cache
 __pycache__/
 *.pyc
 *.pyo
+*.pyd
+.Python
+*.so
+
+# Virtual environments
 ml-env/
 venv/
+env/
+ENV/
 
 # Jupyter
 .ipynb_checkpoints/
+*.ipynb
 
-# IDE
+# IDEs
 .vscode/
 .idea/
+*.swp
+*.swo
 
 # OS
 .DS_Store
 Thumbs.db
+*.log
+
+# Pickle files
+*.pkl
+!scaler.pkl
+!label_encoders.pkl
+
+# Temporary files
+*.tmp
+temp/
