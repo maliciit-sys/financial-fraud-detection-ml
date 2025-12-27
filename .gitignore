@@ -1,12 +1,12 @@
-# Data files
+# Data files (large CSVs)
 *.csv
 data/
 raw_data/
 
-# Model checkpoints (keep only best versions)
+# Model checkpoints (keep only specific versions)
 *.pth
 !models/best_model.pth
-!models/baseline_model.pth
+!models/best_model_fixed.pth
 
 # Python cache
 __pycache__/
@@ -22,9 +22,8 @@ venv/
 env/
 ENV/
 
-# Jupyter
+# Jupyter checkpoints (but allow notebooks)
 .ipynb_checkpoints/
-*.ipynb
 
 # IDEs
 .vscode/
@@ -37,10 +36,12 @@ ENV/
 Thumbs.db
 *.log
 
-# Pickle files
+# Pickle files (keep specific ones)
 *.pkl
-!scaler.pkl
-!label_encoders.pkl
+!models/*.pkl
+!scaler_fixed.pkl
+!label_encoders_fixed.pkl
+!class_weight.pkl
 
 # Temporary files
 *.tmp
