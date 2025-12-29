@@ -24,24 +24,37 @@ scripts/
 │   └── archive/              # Original failed dataset
 │
 ├── notebooks/
-│   ├── 01_non_pca_primary_eda.ipynb
-│   ├── 02_non_pca_primary_nn.ipynb
-│   ├── 03_non_pca_primary_xgboost.ipynb
-│   ├── 04_non_pca_secondary_eda.ipynb
-│   ├── 05_non_pca_secondary_nn.ipynb
-│   ├── 06_non_pca_secondary_xgboost.ipynb
-│   └── 07_non_pca_comparison.ipynb
+│   ├── non_pca/              # Non-PCA dataset notebooks (current focus)
+│   │   ├── 01_non_pca_primary_eda.ipynb
+│   │   ├── 02_non_pca_primary_nn.ipynb
+│   │   ├── 03_non_pca_primary_xgboost.ipynb
+│   │   ├── 04_non_pca_secondary_eda.ipynb
+│   │   ├── 05_non_pca_secondary_nn.ipynb
+│   │   ├── 06_non_pca_secondary_xgboost.ipynb
+│   │   └── 07_non_pca_comparison.ipynb
+│   │
+│   └── pca/                  # PCA dataset notebooks (archived)
+│       ├── 01_pca_primary_eda.ipynb
+│       ├── 02_pca_primary_nn.ipynb
+│       ├── 03_pca_primary_xgboost.ipynb
+│       ├── 04_pca_secondary_eda.ipynb
+│       ├── 05_pca_secondary_nn.ipynb
+│       ├── 06_pca_secondary_xgboost.ipynb
+│       └── 07_pca_comparison.ipynb
 │
 ├── models/
 │   ├── non_pca_primary/      # Sparkov models
 │   ├── non_pca_secondary/    # PaySim models
-│   └── pca_*/                # Archived PCA models
+│   ├── pca_primary/          # Archived PCA models
+│   └── pca_secondary/        # Archived PCA models
 │
 ├── outputs/
 │   ├── non_pca_primary/      # EDA, training curves, results
 │   ├── non_pca_secondary/
 │   ├── non_pca_comparison/
-│   └── pca_*/                # Archived PCA outputs
+│   ├── pca_primary/          # Archived PCA outputs
+│   ├── pca_secondary/
+│   └── pca_comparison/
 │
 ├── src/                      # Reusable Python modules
 ├── docs/                     # Documentation
