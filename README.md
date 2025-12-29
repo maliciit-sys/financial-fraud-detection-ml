@@ -1,77 +1,83 @@
-# Financial Fraud Detection - Multi-Dataset Comparison
+# Financial Fraud Detection using Deep Learning
 
 ## Project Overview
-Comprehensive fraud detection system comparing Neural Networks vs XGBoost across two datasets.
 
-## 🏆 Results Summary
+Neural network and XGBoost-based fraud detection system trained on multiple datasets to demonstrate model performance across different data types.
 
-| Dataset | Model | ROC-AUC | F1 Score | Precision | Recall |
-|---------|-------|---------|----------|-----------|--------|
-| Primary (Credit Card) | Neural Network | 0.9356 | 0.8054 | 80.0% | 81.1% |
-| **Primary (Credit Card)** | **XGBoost** ✓ | **0.9712** | **0.8633** | **92.3%** | 81.1% |
-| Secondary (Bank Account) | Neural Network | 0.8776 | 0.1712 | 10.2% | 52.4% |
-| **Secondary (Bank Account)** | **XGBoost** ✓ | **0.8835** | **0.2282** | **23.0%** | 22.7% |
+## Dataset Summary
 
-## Key Findings
-1. **XGBoost outperforms Neural Networks** on both datasets
-2. **XGBoost is 60-76x faster** in training time
-3. **Primary dataset** has stronger fraud signals (higher performance)
-4. **Secondary dataset** is more challenging (weaker feature correlations)
-5. **Threshold optimization** is crucial for precision-recall balance
+| Dataset | Type | Size | Fraud Rate | Features |
+|---------|------|------|------------|----------|
+| **Non-PCA Primary** (Sparkov) | Interpretable | 1.85M | 0.52% | 23 raw features |
+| **Non-PCA Secondary** (PaySim) | Interpretable | 6.3M | 0.13% | 11 raw features |
+| PCA Primary (Credit Card) | Anonymized | 284K | 0.17% | 30 PCA features |
+| PCA Secondary (Bank Account) | Encoded | 1M | 1.1% | 30+ encoded features |
 
-## Datasets
-
-### Primary: Credit Card Fraud (Kaggle)
-- 284,807 transactions
-- 0.17% fraud rate
-- 30 PCA-transformed features
-- Source: [Kaggle](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud)
-
-### Secondary: Bank Account Fraud (NeurIPS 2022)
-- 1,000,000 transactions
-- 1.10% fraud rate
-- 31 interpretable features
-- Source: [Kaggle](https://www.kaggle.com/datasets/sgpjesus/bank-account-fraud-dataset-neurips-2022)
-
-## Project Structure
+## Repository Structure
 ```
+scripts/
+├── data/
+│   ├── non_pca_primary/      # Sparkov dataset
+│   ├── non_pca_secondary/    # PaySim dataset
+│   ├── pca_primary/          # Credit Card Fraud (archived)
+│   ├── pca_secondary/        # Bank Account Fraud (archived)
+│   └── archive/              # Original failed dataset
+│
 ├── notebooks/
-│   ├── 01_primary_eda.ipynb
-│   ├── 02_primary_neural_network.ipynb
-│   ├── 03_primary_xgboost.ipynb
-│   ├── 04_secondary_eda.ipynb
-│   ├── 05_secondary_neural_network.ipynb
-│   ├── 06_secondary_xgboost.ipynb
-│   └── 07_comparison.ipynb
+│   ├── 01_non_pca_primary_eda.ipynb
+│   ├── 02_non_pca_primary_nn.ipynb
+│   ├── 03_non_pca_primary_xgboost.ipynb
+│   ├── 04_non_pca_secondary_eda.ipynb
+│   ├── 05_non_pca_secondary_nn.ipynb
+│   ├── 06_non_pca_secondary_xgboost.ipynb
+│   └── 07_non_pca_comparison.ipynb
+│
 ├── models/
-│   ├── primary/
-│   │   ├── nn_best_model.pth
-│   │   └── xgboost_model.json
-│   └── secondary/
-│       ├── nn_best_model.pth
-│       └── xgboost_model.json
+│   ├── non_pca_primary/      # Sparkov models
+│   ├── non_pca_secondary/    # PaySim models
+│   └── pca_*/                # Archived PCA models
+│
 ├── outputs/
-│   ├── primary/
-│   ├── secondary/
-│   └── comparison/
-├── archive/              # Previous dataset work
-└── docs/
+│   ├── non_pca_primary/      # EDA, training curves, results
+│   ├── non_pca_secondary/
+│   ├── non_pca_comparison/
+│   └── pca_*/                # Archived PCA outputs
+│
+├── src/                      # Reusable Python modules
+├── docs/                     # Documentation
+└── archive/                  # Old work from original dataset
 ```
+
+## Key Results
+
+### Non-PCA Datasets (Current Focus)
+*Coming soon...*
+
+### PCA Datasets (Archived)
+
+| Dataset | Model | ROC-AUC | F1 | Precision | Recall |
+|---------|-------|---------|-----|-----------|--------|
+| PCA Primary | Neural Network | 0.9356 | 0.8054 | 80.0% | 81.1% |
+| PCA Primary | XGBoost | 0.9712 | 0.8633 | 92.3% | 81.1% |
+| PCA Secondary | Neural Network | 0.8776 | 0.1712 | 10.2% | 52.4% |
+| PCA Secondary | XGBoost | 0.8835 | 0.2282 | 23.0% | 22.7% |
+
+## Lessons Learned
+
+See [docs/ROOT_CAUSE_ANALYSIS.md](docs/ROOT_CAUSE_ANALYSIS.md) for detailed analysis of initial model failures and debugging journey.
+
+See [docs/DATASET_NOTES.md](docs/DATASET_NOTES.md) for complete dataset documentation.
 
 ## Technologies
-- Python 3.10
-- PyTorch (Neural Networks)
-- XGBoost (Gradient Boosting)
-- CUDA (GPU Acceleration)
+
+- Python 3.10+
+- PyTorch
+- XGBoost
 - Pandas, NumPy, Scikit-learn
 - Matplotlib, Seaborn
 
-## Lessons Learned
-1. Data quality > Model complexity
-2. Always check for data leakage
-3. Feature correlations indicate predictability
-4. XGBoost excels on tabular data
-5. Threshold tuning is essential for imbalanced datasets
+## Author
 
-## Previous Work
-See `archive/` folder for initial work on a synthetic fraud dataset that had data leakage issues. Documentation of debugging process in `docs/ROOT_CAUSE_ANALYSIS.md`.
+Muhammad Ali Tahir  
+MS Data Science Program  
+Superior University, Lahore
