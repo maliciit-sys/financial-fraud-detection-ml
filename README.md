@@ -163,7 +163,7 @@ FraudShield/
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/FraudShield.git
+git clone https://github.com/maliciit-sys/financial-fraud-detection-ml
 cd FraudShield
 
 # Create virtual environment
@@ -304,8 +304,7 @@ This project contributes to the following UN Sustainable Development Goals:
 
 **Muhammad Ali Tahir**  
 MS Data Science Program  
-Superior University, Lahore, Pakistan  
-Roll No: SU92-MSDSW-F25-004
+Superior University, Lahore, Pakistan
 
 **Supervisor**: Mr. Talha Nadeem
 
