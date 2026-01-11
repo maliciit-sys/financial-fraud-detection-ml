@@ -7,10 +7,13 @@ data/
 # ===========================================
 # MODEL FILES (Keep only final versions)
 # ===========================================
+# Ignore temporary/model files generally, but allow them in models/ directory
 *.pth
+!models/**/*.pth
 *.pkl
+!models/**/*.pkl
 *.json
-!models/**/.gitkeep
+!models/**/*.json
 
 # ===========================================
 # PYTHON CACHE

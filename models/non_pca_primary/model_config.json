@@ -1,0 +1,35 @@
+{
+  "input_size": 22,
+  "hidden_sizes": [
+    256,
+    128,
+    64
+  ],
+  "dropout_rate": 0.3,
+  "best_f1": 0.21339501206757844,
+  "epochs_trained": 11,
+  "feature_columns": [
+    "amt",
+    "gender",
+    "city_pop",
+    "hour",
+    "day_of_week",
+    "month",
+    "age",
+    "state_encoded",
+    "cat_entertainment",
+    "cat_food_dining",
+    "cat_gas_transport",
+    "cat_grocery_net",
+    "cat_grocery_pos",
+    "cat_health_fitness",
+    "cat_home",
+    "cat_kids_pets",
+    "cat_misc_net",
+    "cat_misc_pos",
+    "cat_personal_care",
+    "cat_shopping_net",
+    "cat_shopping_pos",
+    "cat_travel"
+  ]
+}
